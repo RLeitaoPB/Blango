@@ -113,6 +113,7 @@ class Dev(Configuration):
       "allauth.socialaccount.providers.google",
       "rest_framework",
       "rest_framework.authtoken",
+      "drf_yasg"
   ]
 
   MIDDLEWARE = [
@@ -133,6 +134,13 @@ class Dev(Configuration):
   CRISPY_TEMPLATE_PACK = "bootstrap5"
 
   ROOT_URLCONF = 'blango.urls'
+
+  SWAGGER_SETTINGS = {
+    "SECURITY_DEFINITIONS": {
+    "Token": {"type": "apiKey", "name": "Authorization", "in": "header"},
+    "Basic": {"type": "basic"},
+    }
+  }
 
   TEMPLATES = [
       {
